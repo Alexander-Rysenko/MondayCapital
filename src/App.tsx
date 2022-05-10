@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+} from 'react-router-dom';
+import { apiSearch } from './api/apiSearch';
+import Main from './Main'
+import Simple from './Simple'
+import { FormattedDataProps } from './types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './app.scss';
+
+const App: React.FC = (): JSX.Element => {
+    const [data, setData] = useState<FormattedDataProps | void | {}>({});
+
+    const searchHandler = async (): Promise<void> => {
+        const dataFromApi: FormattedDataProps | void = await apiSearch();
+
+        setData(dataFromApi);
+    };
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Main searchHandler={searchHandler} data={data} />} />
+                <Route path="/simple" element={<Simple />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
