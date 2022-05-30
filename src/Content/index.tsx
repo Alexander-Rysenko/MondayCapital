@@ -40,8 +40,8 @@ const Content: React.FC<ContentProps> = ({data}): JSX.Element => {
     }, [restItemList]);
 
     const getRandomIntNumber = (): number => {
-        const min: number = Math.ceil(1);
-        const max: number = Math.floor(3);
+        const min: number = Math.ceil(5);
+        const max: number = Math.floor(10);
 
         return (Math.floor(Math.random() * (max - min + 1)) + min) * 1000;
     };

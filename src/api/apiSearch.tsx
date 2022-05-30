@@ -2,7 +2,8 @@ import axios from 'axios';
 import { FormattedDataProps } from '../types';
 
 export const apiSearch = async (): Promise<FormattedDataProps | void> => {
-    const url: string = 'https://serpapi.com/search';
+    const antiCorsUrl = 'https://cors-anywhere.herokuapp.com/';
+    const url: string = `${antiCorsUrl}https://serpapi.com/search`;
     const params: {[key: string]: string} = {
         q: "Coffee",
         location: "Austin, Texas, United States",
