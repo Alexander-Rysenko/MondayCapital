@@ -44,3 +44,19 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Main Goals
+
+Use your own design. Build a simple UI where it has.
+
+Just need a search field. and a button to trigger.
+
+A user type anything and it will be send to this API https://serpapi.com/
+
+When you search, the API returns:
+- knowledge_graph : render this on sidebar. only need title + a few photo. No need fancy UI or effect.
+- organic_results: this is the result list: title + some description/content. only show first 5 results.
+every random between 5-10seconds, adding one more result to the top of organic_results list. Until we run out.
+- Now, in browser, if I change URL to http://your-local-dev:port/?template=simple then it should display only title of organic_results. Don't use CSS, we want to see how you handle dynamic template choosing.
+
+*End goal:* using React/TypeScript, API integration, render result, pick template dynamically.
