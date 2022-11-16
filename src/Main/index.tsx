@@ -46,7 +46,7 @@ const Main: React.FC<MainProps> = ({ data }): JSX.Element => {
 
     const handleClickAll = (state: boolean): void => {
         let data: DataProps = {};
-        checkboxKeyList.map((key): void => {
+        checkboxKeyList.forEach((key): void => {
             data = {
                 ...data,
                 [key]: state
