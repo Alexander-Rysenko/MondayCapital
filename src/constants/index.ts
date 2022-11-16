@@ -1,1 +1,0 @@
-export const NO_DATA_TEXT: string = 'No data yet';
