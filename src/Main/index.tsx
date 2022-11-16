@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { DataProps } from '../types';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { DataProps } from '../types';
 
 type MainProps = {
     data: DataProps;
