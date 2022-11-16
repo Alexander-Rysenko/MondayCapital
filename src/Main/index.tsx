@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { DataProps } from '../types';
 import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 type MainProps = {
     data: DataProps;
@@ -22,10 +23,16 @@ const Main: React.FC<MainProps> = ({ data }): JSX.Element => {
 
     const getContent = useMemo(() => {
         return checkboxKeyList.map((item: string): JSX.Element => (
-            <Checkbox
-                checked={checkList[item]}
-                onChange={(e, state) => handleClick(state, item)}
-                inputProps={{ 'aria-label': 'primary checkbox' }}
+            <FormControlLabel
+                className="checkbox-item"
+                control={
+                    <Checkbox
+                        checked={checkList[item]}
+                        onChange={(e, state) => handleClick(state, item)}
+                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                    />
+                }
+                label={item}
             />
         ));
     }, [checkList]);
@@ -53,10 +60,15 @@ const Main: React.FC<MainProps> = ({ data }): JSX.Element => {
     return (
         <div className="wrapper content-wrapper">
             <div className="block-header">
-                <Checkbox
-                    checked={allChecked}
-                    onChange={(e, state) => handleClickAll(state)}
-                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={allChecked}
+                            onChange={(e, state) => handleClickAll(state)}
+                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                        />
+                    }
+                    label="Asset Classes"
                 />
             </div>
             <Box sx={{width: '100%'}}>
