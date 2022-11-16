@@ -12,12 +12,15 @@ type MainProps = {
 const Main: React.FC<MainProps> = ({ data }): JSX.Element => {
     const [checkList, setCheckList] = useState<DataProps>(data);
     const [allChecked, setAllChecked] = useState<boolean>(false);
-    const checkboxKeyList = Object.keys(checkList);
+    const [mixedCheckbox, setMixedCheckbox] = useState<boolean>(false);
+    const checkboxKeyList: string[] = Object.keys(checkList);
 
     useEffect((): void => {
         const checkboxesValues: boolean[] = Object.values(checkList);
         const allChecked: boolean = !checkboxesValues.some((item: boolean) => !item);
+        const mixed: boolean = !checkboxesValues.every((item: boolean) => item === checkboxesValues[0]);
 
+        setMixedCheckbox(mixed);
         setAllChecked(allChecked);
     }, [checkList]);
 
@@ -64,6 +67,7 @@ const Main: React.FC<MainProps> = ({ data }): JSX.Element => {
                     control={
                         <Checkbox
                             checked={allChecked}
+                            className={`${mixedCheckbox ? 'header-mixed-checkbox' : ''}`}
                             onChange={(e, state) => handleClickAll(state)}
                             inputProps={{ 'aria-label': 'primary checkbox' }}
                         />

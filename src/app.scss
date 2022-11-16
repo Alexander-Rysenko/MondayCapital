@@ -38,3 +38,18 @@ body {
   margin-bottom: 15px;
   border-bottom: 1px solid #ccc;
 }
+
+.header-mixed-checkbox {
+  position: relative;
+
+  &:before {
+    content: "/";
+    position: absolute;
+    left: 16px;
+    top: 3px;
+    font-weight: bold;
+    color: #1976d2;
+    font-size: 25px;
+    transform: rotateX(-50deg);
+  }
+}
