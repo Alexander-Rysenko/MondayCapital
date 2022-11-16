@@ -7,22 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.search-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-
-  .search-field {
-    min-width: 300px;
-    margin-right: 20px;
-  }
-}
-
 .wrapper {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
+  margin: 20px;
+  box-sizing: border-box;
 }
 
 .main-wrapper {
@@ -33,15 +23,14 @@ body {
 .content-wrapper {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin-right: 40px;
 }
 
-.sidebar-wrapper {
-  width: 30%;
+.content-inner {
+  align-items: flex-start;
 }
 
-.block-title {
+.block-header {
   margin-top: 0;
+  margin-bottom: 15px;
   border-bottom: 1px solid #ccc;
 }

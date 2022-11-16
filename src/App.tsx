@@ -1,30 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     BrowserRouter,
     Routes,
     Route,
 } from 'react-router-dom';
-import { apiSearch } from './api/apiSearch';
 import Main from './Main'
-import Simple from './Simple'
-import { FormattedDataProps } from './types';
+import { DataProps } from './types';
 
 import './app.scss';
 
+const initialData: DataProps = {
+    checkbox1: false,
+    checkbox2: false,
+    checkbox3: false,
+    checkbox4: false,
+    checkbox5: false,
+}
+
 const App: React.FC = (): JSX.Element => {
-    const [data, setData] = useState<FormattedDataProps | void | {}>({});
-
-    const searchHandler = async (): Promise<void> => {
-        const dataFromApi: FormattedDataProps | void = await apiSearch();
-
-        setData(dataFromApi);
-    };
-
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Main searchHandler={searchHandler} data={data} />} />
-                <Route path="/simple" element={<Simple />} />
+                <Route path="/" element={<Main data={initialData} />} />
             </Routes>
         </BrowserRouter>
     );
